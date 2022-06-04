@@ -1,18 +1,11 @@
 {
-    "name": "scngn/Product",
-    "description": "Laravel Product entegrasyonu modülü",
+    "name": "scngnr/product",
+    "license": "mıt",
     "autoload": {
         "psr-4": {
-            "Scngn\\Product\\": "src/"
+            "Scngnr\\Product\\": "src/"
         }
     },
-    "extra": {
-      "laravel": {
-          "providers": [
-              "Scngnr\\Product\\ProductProvider"
-          ]
-      }
-  },
     "authors": [
         {
             "name": "scngnr",
