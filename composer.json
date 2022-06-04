@@ -1,6 +1,6 @@
 {
     "name": "scngnr/product",
-    "license": "mıt",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Scngnr\\Product\\": "src/"
