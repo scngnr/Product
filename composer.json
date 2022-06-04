@@ -1,0 +1,23 @@
+{
+    "name": "scngn/Product",
+    "description": "Laravel Product entegrasyonu modülü",
+    "autoload": {
+        "psr-4": {
+            "Scngn\\Product\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "Scngnr\\Product\\ProductProvider"
+          ]
+      }
+  },
+    "authors": [
+        {
+            "name": "scngnr",
+            "email": "scngnr@gmail.com"
+        }
+    ],
+    "require": {}
+}
