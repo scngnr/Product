@@ -26,6 +26,10 @@ class CreateEnProductsTable extends Migration
           $table->string("stockCode")->nullable();
           $table->string("gtin")->nullable();
           $table->string("pictures")->nullable();
+          $table->string("pictures2")->nullable();
+          $table->string("pictures3")->nullable();
+          $table->string("pictures5")->nullable();
+          $table->string("pictures4")->nullable();
           $table->string("deci")->nullable();
           $table->string("stock")->nullable();
           $table->string("varyation")->nullable();
