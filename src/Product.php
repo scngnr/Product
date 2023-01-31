@@ -2,12 +2,20 @@
 
 namespace Scngnr\Product;
 use Scngnr\Product\Models\en_product;
-
+use Scngnr\Product\Helper\Gateway;
 /**
  *
  */
-class Product
+class Product extends Gateway
 {
+
+  /**
+  *
+  *
+  *   @version Master -- BetaTest
+  *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+  *   @author Sercan Güngör
+  */
 
   public function productIndex(){
 
@@ -36,6 +44,14 @@ class Product
     return $productSpect;
   }
 
+  /**
+  *
+  *
+  *   @version Master -- BetaTest
+  *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+  *   @author Sercan Güngör
+  */
+
   public function productVaryationIndex(){
     $productVaryationSpect = [
       'productId',
@@ -49,12 +65,25 @@ class Product
     return $productVaryationSpect;
 
   }
+  /*
+  *
+  *
+  *
+  *
+  */
 
   public function productFind($sutun, $stockCode){
 
     return en_product::where($sutun, $stockCode)->first();
   }
 
+    /**
+    * Yeni Ürün Yüklemek İçin ve Güncellemek için
+    *
+    *   @version Master -- BetaTest
+    *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+    *   @author Sercan Güngör
+    */
 
     public function productSaves($stokCode , $spect, $source){
 
@@ -65,23 +94,22 @@ class Product
         $spectKeylist = array_keys($spect);
         for ($i=0; $i < count($spectKeylist) ; $i++) {
           $spectKeyName = $spectKeylist[$i];
-          if(array_key_exists($spectKeyName, $spect)){
-            $product[$spectKeyName] = $spect[$spectKeyName];
+          //if(array_key_exists($spectKeyName, $spect)){
+          if($spect[$spectKeyName]){
+              $product[$spectKeyName] = $spect[$spectKeyName];
           }
         }
         $product->update();
       }else {
         $product = new en_product;
-        $product['stockCode'] = $stokCode;
-        // $product[$spect] = $deger;
+        $product['source'] = $stokCode;
         $spectKeylist = array_keys($spect);
         for ($i=0; $i < count($spectKeylist) ; $i++) {
           $spectKeyName = $spectKeylist[$i];
-          if(array_key_exists($spectKeyName, $spect)){
+          if($spect[$spectKeyName]){
             $product[$spectKeyName] = $spect[$spectKeyName];
           }
         }
-        $product['source'] = $source;
         $product->save();
       }
     }

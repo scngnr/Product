@@ -7,13 +7,14 @@ use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use  Scngnr\Product\Models\N11CategoryService;
 
-
-
-Route::prefix('/product')->group( function(){                  //Hesap Ayarları
+use Scngnr\Product\Product;
+Route::middleware(['web', 'auth'])->prefix('/product')->group( function(){                  //Hesap Ayarları
   Route::get('/',  App\Http\Livewire\productDashboard::class);
   Route::get('/category', Scngnr\Product\Http\Livewire\categoryDashboard::class);
 
   Route::get('/edit/{id}', Scngnr\Product\Http\Livewire\editProduct::class);
+
+  Route::get('/category/eslestir/{id}', App\Http\Livewire\ProductKategoriEslestir::class);
 
   Route::post('/price/{id}', [Scngnr\Product\Http\Controllers\PriceController::class, 'index']);
   Route::get('check/status/{id}/{status}', [Scngnr\Product\Http\Controllers\PriceController::class, 'checkStatus']);
@@ -40,6 +41,8 @@ Route::prefix('/product')->group( function(){                  //Hesap Ayarları
 
 });
 
+
+ 
 
 
 
